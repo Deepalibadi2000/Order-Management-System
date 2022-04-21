@@ -1,8 +1,8 @@
 export class Constants {
 
     public static SAVED_USERDETAILS = {
-        mobile_number: 'mobile_number',
-        password: 'password',
+        userName: 'Deepali',
+        password: 'admin@2022',
         is_logged: 'is_logged',
     };
 

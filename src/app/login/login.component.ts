@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   mobileNumber: any;
   password: any;
-  remember_me:any;
+  remember_me:boolean=false;
   isLoggedIn = false;
   isLoading = false;
   userName:any;
@@ -37,13 +37,16 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    console.log('User Data', this.mobileNumber + ' ' + this.password);
-    if (this.isValidUserDetails()) {
+    if (this.isValidUserDetails() === true) {
+      console.log(this.userName)
+      console.log(this.password)
       this.isLoggedIn = true;
       // this.closeModal();
       localStorage.setItem(Constants.SAVED_USERDETAILS.is_logged, 'true');
       localStorage.setItem(Constants.SAVED_USERDETAILS.password, this.password);
-      localStorage.setItem(Constants.SAVED_USERDETAILS.mobile_number, this.mobileNumber);
+      localStorage.setItem(Constants.SAVED_USERDETAILS.userName  , this.userName);
+      console.log(localStorage)
+     
       this.router.navigate(['/home']);
     } else {
       // this.toast.error('Login Failed, Try Again', 'fail');
@@ -52,30 +55,40 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  isValidUserDetails() {
-    if (this.mobileNumber == undefined
-      || this.mobileNumber == null || this.mobileNumber == '') {
-      this.toast.error('Enter valid mobile number', 'Fail');
+  isValidUserDetails(): boolean {
+    if (this.userName === undefined || this.userName === null || this.userName === '') {
       return false;
-    } else if (this.mobileNumber.length != 10) {
-      this.toast.error('Please enter valid 10 didit Mobile number', 'Fail');
+    }
+    if (this.userName !== Constants.SAVED_USERDETAILS.userName) {
+      this.toast.warning('User not Registered');
+      return false;
+    }
+    if (this.password === undefined || this.password === null || this.password === '') {
+      return false;
+    }
+    if (this.password !== Constants.SAVED_USERDETAILS.password) {
+      this.toast.warning('Password Incorrect, Please Try Again');
       return false;
     }
     return true;
   }
-
+  onClick(){
+    console.log("clicked 1" + this.remember_me);
+    this.remember_me=!this.remember_me; 
+    console.log("clicked 2" + this.remember_me);
+  }
   showSnackbar() {
     this.snackbar.add({msg : 'Login Failed'});
   }
 
   ngOnInit(): void {
     this.isUserLoggedIn();
-    if (this.isLoggedIn) {
-      this.router.navigate(['/home']);
-    } else {
-      // this.showLoginAlert();
-      // this.showLoginDialogModal();
-    }
+    // if (this.isLoggedIn) {
+    //   this.router.navigate(['/home']);
+    // } else {
+    //    //this.showLoginAlert();
+    //   // this.showLoginDialogModal();
+    // }
   }
 
 }

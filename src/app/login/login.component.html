@@ -3,7 +3,7 @@
         <div class="wrap-login100">
             <div class="col-sm-5">
                 <div>
-                    <img style="width: 100px;" src="../assets/pic.jpg">
+                    <img style="width: 300px;" src="../assets/pic.jpg">
                 </div>
                 <div>
                     <p class="primary-dark" style="margin-bottom: -2px;">From</p>
@@ -19,17 +19,17 @@
                 </div>
                 <form id="login-form" #loginForm class="validate-form" (submit)="loginUser()">
                     <div class="input-group">
-                        <input class="form-control mb-2" type="username" id="name" name="name" placeholder="User Name"
+                        <input class="form-control mb-2" type="username" id="name" name="name" placeholder="User Name" [(ngModel)]="userName"
                             [disabled]="isLoading" required>
                     </div>
                     <input class="form-control" type="password" id="password" name="password" maxlength="16"
                         placeholder="Password" [disabled]="isLoading" [(ngModel)]="password" required>
-                    <label for="rememberMe"> Remember Me
-                        <input id="rememberMe" [(ngModel)]="remember_me" [hidden]="false" type="checkbox">
-                    </label>
-                    <button form="login-form" id="login-form" class="btn btn-outline-light form-control mt-4">LOGIN
-                    </button>
+                    
                 </form>
+                <label for="rememberMe" >
+                    <input id="rememberMe" name="rememberMe" [(ngModel)]="remember_me" (click)="onClick()" [hidden]="false" type="checkbox">Remember Me
+                </label>
+                <button form="login-form" id="login-form" class="btn btn-outline-light form-control mt-4">LOGIN</button>
             </div>
         </div>
     </div>
