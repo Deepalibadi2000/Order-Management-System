@@ -1,0 +1,36 @@
+<div class="limiter">
+    <div class="container-100">
+        <div class="wrap-login100">
+            <div class="col-sm-5">
+                <div>
+                    <img style="width: 100px;" src="../assets/pic.jpg">
+                </div>
+                <div>
+                    <p class="primary-dark" style="margin-bottom: -2px;">From</p>
+                </div>
+                <div>
+                    <h4>Order Management System</h4>
+                </div>
+            </div>
+            <div class="col-sm-1 "></div>
+            <div class="col-sm-6 row p-4">
+                <div class="mb-4">
+                    <h3 class="center">User Login</h3>
+                </div>
+                <form id="login-form" #loginForm class="validate-form" (submit)="loginUser()">
+                    <div class="input-group">
+                        <input class="form-control mb-2" type="username" id="name" name="name" placeholder="User Name"
+                            [disabled]="isLoading" required>
+                    </div>
+                    <input class="form-control" type="password" id="password" name="password" maxlength="16"
+                        placeholder="Password" [disabled]="isLoading" [(ngModel)]="password" required>
+                    <label for="rememberMe"> Remember Me
+                        <input id="rememberMe" [(ngModel)]="remember_me" [hidden]="false" type="checkbox">
+                    </label>
+                    <button form="login-form" id="login-form" class="btn btn-outline-light form-control mt-4">LOGIN
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

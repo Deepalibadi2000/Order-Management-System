@@ -1,0 +1,139 @@
+/* You can add global styles to this file, and also import other style files */
+.card {
+    background-color: white;
+}
+
+.leftCard {
+    background-color: transparent;
+    height: 100%;
+    width: 45%;
+    padding: 10px;
+    text-align: center;
+}
+
+.rightCard {
+    background-color: transparent;
+    height: 100%;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.login-page {
+    border: grey;
+    background-color: #96c824;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 70%;
+    background-color: #96c824;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* Colors Codes */
+
+.primary {
+    color: #96c824;
+}
+
+.primary-dark {
+    color: #486601;
+}
+
+.primary-bg {
+    background-color: #96c824;
+}
+
+.primary-bg-dark {
+    background-color: #486601;
+}
+
+/* Resource */
+
+.loading {
+    background-color: transparent;
+    height: 100px;
+    width: 100px;
+}
+
+/* Fields */
+
+input {
+    border: 1.5px solid #96c824;
+    border-radius: 4px;
+    min-height: 40px;
+}
+
+input:focus {
+    border: 1.5px solid #435f01;
+    border-radius: 4px;
+    min-height: 40px;
+}
+
+/* Utils */
+
+.vr {
+    border: none;
+    border-left: 1px solid gainsboro;
+    width: 1px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGIN Page CSS */
+
+.container-100 {
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    background: -webkit-linear-gradient(-135deg, white, #2C2336);
+    background: -o-linear-gradient(-135deg, white, #2C2336);
+    background: -moz-linear-gradient(-135deg, white, #2C2336);
+    background: linear-gradient(-135deg, white, #2C2336);
+}
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.wrap-login100 {
+    width: 960px;
+    background: #AAB7B8;
+    border-radius: 10px;
+    overflow: hidden;  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 99px;
+}
+
+
