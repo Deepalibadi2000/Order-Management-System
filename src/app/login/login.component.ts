@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem(Constants.SAVED_USERDETAILS.userName  , this.userName);
       console.log(localStorage)
      
-      this.router.navigate(['/home']);
+      this.router.navigate(['/orders']);
     } else {
       // this.toast.error('Login Failed, Try Again', 'fail');
       this.snackbar.add({ msg: 'Login Failed - Try Again' });
@@ -83,12 +83,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.isUserLoggedIn();
-    // if (this.isLoggedIn) {
-    //   this.router.navigate(['/home']);
-    // } else {
-    //    //this.showLoginAlert();
-    //   // this.showLoginDialogModal();
-    // }
+     if (this.isLoggedIn) {
+       this.router.navigate(['/orders']);
+     } else {
+        //this.showLoginAlert();
+       // this.showLoginDialogModal();
+     }
   }
 
 }

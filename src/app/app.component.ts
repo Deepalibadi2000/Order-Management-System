@@ -16,7 +16,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     if (this.isLoggedIn) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/orders']);
     } else {
       this.router.navigate(['/login']);
     }

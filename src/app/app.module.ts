@@ -5,20 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SnackbarModule } from 'ngx-snackbar';
+import { OrdersComponent } from './orders/orders.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
-    HomeComponent
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +28,9 @@ import { SnackbarModule } from 'ngx-snackbar';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgbModule,
-    SnackbarModule.forRoot(),
+      NgbModule,
+      
+      SnackbarModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
