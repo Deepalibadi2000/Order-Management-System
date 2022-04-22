@@ -3,6 +3,7 @@ import { TemplateRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
@@ -77,15 +78,27 @@ export class OrdersComponent implements OnInit {
     deleteOrder(Order: any) {
         for (let order of this.orders) {
             if (order.order_no === Order.order_no) {
-                const index = this.orders.indexOf(order);
-                this.orders.splice(index,1);
+                swal.fire({
+                    title: 'Are you sure?',
+                    text: 'You won\'t be able revert this action!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, cancel!',
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const index = this.orders.indexOf(order);
+                        this.orders.splice(index, 1);
+                        this.toastr.success("Successfully Deleted the Order.")
+                    } else if (
+                        result.dismiss === swal.DismissReason.cancel
+                    ) {
+                    }
+                });
             }
         }
-       
-
-        this.toastr.success("Successfully Deleted the Order.")
         this.closeModal();
-
     }
     editOrderData() {
         for (let order of this.orders) {

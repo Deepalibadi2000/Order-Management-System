@@ -44,8 +44,15 @@ export class LoginComponent implements OnInit {
       // this.closeModal();
       localStorage.setItem(Constants.SAVED_USERDETAILS.is_logged, 'true');
       localStorage.setItem(Constants.SAVED_USERDETAILS.password, this.password);
-      localStorage.setItem(Constants.SAVED_USERDETAILS.userName  , this.userName);
+      localStorage.setItem(Constants.SAVED_USERDETAILS.userName, this.userName);
+      
       console.log(localStorage)
+
+      if (this.remember_me) {
+        localStorage.setItem(Constants.SAVED_USERDETAILS.remember_me, 'true');
+      } else {
+        localStorage.setItem(Constants.SAVED_USERDETAILS.remember_me, 'false');
+      }
      
       this.router.navigate(['/orders']);
     } else {
@@ -72,6 +79,11 @@ export class LoginComponent implements OnInit {
     }
     return true;
   }
+  toggleRememberMeStatus() {
+    console.log("clicked 1" + this.remember_me);
+    this.remember_me=!this.remember_me; 
+    console.log("clicked 2" + this.remember_me);
+  }
   onClick(){
     console.log("clicked 1" + this.remember_me);
     this.remember_me=!this.remember_me; 
@@ -83,6 +95,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.isUserLoggedIn();
+    if (this.remember_me || localStorage.getItem(Constants.SAVED_USERDETAILS.remember_me)) {
+      this.userName = localStorage.getItem(Constants.SAVED_USERDETAILS.userName);
+      this.password = localStorage.getItem(Constants.SAVED_USERDETAILS.password);
+    }
      if (this.isLoggedIn) {
        this.router.navigate(['/orders']);
      } else {

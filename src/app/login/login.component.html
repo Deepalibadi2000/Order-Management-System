@@ -6,9 +6,9 @@
                     <img style="width: 300px;" src="../assets/pic.jpg">
                 </div>
                 <div>
-                    <p class="primary-dark" style="margin-bottom: -2px;">From</p>
+                    <p class="primary-dark" style="margin-bottom: -2px;"></p>
                 </div>
-                <div>
+                <div class="mt-4">
                     <h4>Order Management System</h4>
                 </div>
             </div>
@@ -26,10 +26,11 @@
                         placeholder="Password" [disabled]="isLoading" [(ngModel)]="password" required>
                     
                 </form>
-                <label for="rememberMe" >
-                    <input id="rememberMe" name="rememberMe" [(ngModel)]="remember_me" (click)="onClick()" [hidden]="false" type="checkbox">Remember Me
+                <label>
+                    <input class="v-center" #checkRememberMe id="rememberMe" name="rememberMe" type="checkbox"
+                        [checked]="remember_me" (change)="toggleRememberMeStatus()">  Remember Me
                 </label>
-                <button form="login-form" id="login-form" class="btn btn-outline-light form-control mt-4">LOGIN</button>
+                <button form="login-form" id="login-form" class="btn btn-outline-light mt-4 form-control">LOGIN</button>
             </div>
         </div>
     </div>

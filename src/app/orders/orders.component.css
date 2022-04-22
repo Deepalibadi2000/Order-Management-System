@@ -1,3 +1,15 @@
 .center {
     text-align: center;
+    min-height: 100px;
+    background-color: lightslategrey;
+}
+.to-align{
+    text-align:right;
+    padding-left:10px;
+}
+.bg-colors {
+   
+    text-align:center;
+    
+    color: black;
 }

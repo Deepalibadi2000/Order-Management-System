@@ -4,6 +4,7 @@ export class Constants {
         userName: 'Deepali',
         password: 'admin@2022',
         is_logged: 'is_logged',
+        remember_me: 'remember_me'
     };
 
     public static LOGINFORM = `
