@@ -20,15 +20,15 @@
                 <form id="login-form" #loginForm class="validate-form" (submit)="loginUser()">
                     <div class="input-group">
                         <input class="form-control mb-2" type="username" id="name" name="name" placeholder="User Name" [(ngModel)]="userName"
-                            [disabled]="isLoading" required>
+                               [disabled]="isLoading" required>
                     </div>
                     <input class="form-control" type="password" id="password" name="password" maxlength="16"
-                        placeholder="Password" [disabled]="isLoading" [(ngModel)]="password" required>
-                    
+                           placeholder="Password" [disabled]="isLoading" [(ngModel)]="password" required>
+
                 </form>
                 <label>
                     <input class="v-center" #checkRememberMe id="rememberMe" name="rememberMe" type="checkbox"
-                        [checked]="remember_me" (change)="toggleRememberMeStatus()">  Remember Me
+                           [checked]="remember_me" (change)="toggleRememberMeStatus()">  Remember Me
                 </label>
                 <button form="login-form" id="login-form" class="btn btn-outline-light mt-4 form-control">LOGIN</button>
             </div>

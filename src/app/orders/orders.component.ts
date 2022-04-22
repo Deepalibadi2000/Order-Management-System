@@ -1,13 +1,15 @@
 import { ViewChild } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import swal from 'sweetalert2';
+import { Constants } from '../common/constants';
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+    selector: 'app-orders',
+    templateUrl: './orders.component.html',
+    styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
     public modalReference: NgbModalRef | undefined;
@@ -20,7 +22,7 @@ export class OrdersComponent implements OnInit {
     ph_no: any = undefined;
     order_total: any = undefined;
     addOrderFlag: boolean = true;
-    
+    islogged: boolean = false;
 
     orders: any = [
         { "order_no": 123456, "due_date": "2022-04-06", "customer_name": "Deepali Badi", "customer_address": "Gachibowli, Hyderabad", "ph_no": 9876599210, "order_total": 12000 },
@@ -32,6 +34,8 @@ export class OrdersComponent implements OnInit {
     ];
     order_no: any;
     constructor(private modal: NgbModal,
+        private router: Router,
+
         private toastr: ToastrService,
     ) { }
     addOrders() {
@@ -60,7 +64,7 @@ export class OrdersComponent implements OnInit {
             customer_name: this.customer_name,
             customer_address: this.customer_address,
             ph_no: this.ph_no,
-            order_total:this.order_total
+            order_total: this.order_total
         }
         this.orders.push(finalData);
         this.toastr.success("Successfully Added Your Order.")
@@ -100,6 +104,11 @@ export class OrdersComponent implements OnInit {
         }
         this.closeModal();
     }
+    logout() {
+        localStorage.setItem(Constants.SAVED_USERDETAILS.is_logged, 'false');
+        this.router.navigate(['/login']);
+
+    }
     editOrderData() {
         for (let order of this.orders) {
             if (order.order_no === this.order_no) {
@@ -115,8 +124,8 @@ export class OrdersComponent implements OnInit {
         this.closeModal();
     }
     ngOnInit(): void {
-       
-  }
+
+    }
 
 }
 
